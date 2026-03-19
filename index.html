@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso de Soldadura Profesional — CEA Cursos</title>
+  <meta name="description" content="Formación profesional en soldadura MIG/MAG, TIG y electrodo. Certificado oficial. Modalidad presencial y online." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ────────────────────────────────────── */
+    :root {
+      --negro:   #0f0f0f;
+      --carbon:  #1a1a1a;
+      --grafito: #2a2a2a;
+      --acero:   #3d3d3d;
+      --humo:    #6b6b6b;
+      --gris:    #b0b0b0;
+      --claro:   #f4f4f2;
+      --blanco:  #ffffff;
+      --naranja: #ff0000;
+      --naranja2:#d44a10;
+      --amarillo:#ffc233;
+
+      --fuente-titulo: 'Barlow Condensed', sans-serif;
+      --fuente-cuerpo: 'Barlow', sans-serif;
+
+      --radio: 6px;
+      --radio-lg: 12px;
+      --sombra: 0 4px 24px rgba(0,0,0,.18);
+      --sombra-lg: 0 8px 40px rgba(0,0,0,.28);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--fuente-cuerpo);
+      background: var(--claro);
+      color: var(--carbon);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a  { text-decoration: none; color: inherit; }
+
+    /* ── UTILIDADES ────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .btn {
+      display: inline-block;
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: var(--radio);
+      cursor: pointer;
+      border: none;
+      transition: transform .15s, box-shadow .15s, background .15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+    .btn:active { transform: translateY(0); }
+    .btn--naranja { background: var(--naranja); color: var(--blanco); }
+    .btn--naranja:hover { background: var(--naranja2); }
+    .btn--outline {
+      background: transparent;
+      color: var(--blanco);
+      border: 2px solid var(--blanco);
+    }
+    .btn--outline:hover { background: var(--blanco); color: var(--negro); }
+    .btn--dark { background: var(--negro); color: var(--blanco); }
+    .btn--dark:hover { background: var(--grafito); }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--fuente-titulo);
+      font-weight: 600;
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .tag--naranja { background: var(--naranja); color: var(--blanco); }
+    .tag--verde   { background: #2e7d32; color: var(--blanco); }
+    .tag--acero   { background: var(--acero); color: var(--gris); }
+
+    .seccion-titulo {
+      font-family: var(--fuente-titulo);
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+    .seccion-subtitulo {
+      font-size: 1rem;
+      color: var(--humo);
+      line-height: 1.65;
+      max-width: 580px;
+    }
+
+    /* ── BARRA SUPERIOR ────────────────────────────── */
+    .topbar {
+      background: var(--negro);
+      color: var(--gris);
+      font-family: var(--fuente-titulo);
+      font-size: .82rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 8px 0;
+    }
+    .topbar__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .topbar__item { display: flex; align-items: center; gap: 6px; }
+    .topbar__item svg { width: 14px; height: 14px; fill: var(--naranja); flex-shrink: 0; }
+    .topbar a:hover { color: var(--naranja); }
+
+    /* ── NAVBAR ────────────────────────────────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--blanco);
+      border-bottom: 3px solid var(--naranja);
+      box-shadow: 0 2px 16px rgba(0,0,0,.1);
+    }
+    .navbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: 1160px;
+      margin: 0 auto;
+      gap: 24px;
+    }
+    .navbar__logo {
+      font-family: var(--fuente-titulo);
+      font-weight: 800;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--negro);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .navbar__logo-icon {
+      width: 40px; height: 40px;
+      background: var(--naranja);
+      border-radius: var(--radio);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .navbar__logo-icon svg { width: 22px; height: 22px; fill: var(--blanco); }
+    .navbar__nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .navbar__nav a {
+      font-family: var(--fuente-titulo);
+      font-weight: 600;
+      font-size: .9rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--acero);
+      padding: 8px 14px;
+      border-radius: var(--radio);
+      transition: color .15s, background .15s;
+    }
+    .navbar__nav a:hover { color: var(--naranja); background: #fff5f0; }
+    .navbar__cta { flex-shrink: 0; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--carbon);
+      border-radius: 2px;
+      transition: transform .25s;
+    }
+
+    /* ── HERO ──────────────────────────────────────── */
+    .hero {
+      background: var(--negro);
+      color: var(--blanco);
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(240,90,26,.18) 0%, transparent 65%),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 39px,
+          rgba(255,255,255,.025) 39px,
+          rgba(255,255,255,.025) 40px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 39px,
+          rgba(255,255,255,.025) 39px,
+          rgba(255,255,255,.025) 40px
+        );
+    }
+    .hero__sparks {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      height: 320px;
+      opacity: .22;
+      pointer-events: none;
+    }
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding: 80px 24px;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero__kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .hero__kicker-line {
+      width: 40px; height: 3px;
+      background: var(--naranja);
+      border-radius: 2px;
+    }
+    .hero__kicker-text {
+      font-family: var(--fuente-titulo);
+      font-weight: 600;
+      font-size: .82rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--naranja);
+    }
+    .hero__titulo {
+      font-family: var(--fuente-titulo);
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      line-height: 1.0;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      margin-bottom: 20px;
+    }
+    .hero__titulo em {
+      font-style: normal;
+      color: var(--naranja);
+    }
+    .hero__desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #c8c8c8;
+      margin-bottom: 32px;
+      max-width: 440px;
+    }
+    .hero__acciones {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .hero__stats {
+      display: flex;
+      gap: 32px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .hero__stat-num {
+      font-family: var(--fuente-titulo);
+      font-weight: 800;
+      font-size: 1.9rem;
+      color: var(--naranja);
+      line-height: 1;
+    }
+    .hero__stat-label {
+      font-size: .8rem;
+      color: var(--gris);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-top: 2px;
+    }
+
+    /* foto soldando */
+    .hero__ilustracion img{
+      margin: 10px;
+      margin-top: 25px;
+     width: 1000px;
+     height: auto;
+     border-radius: 10px;
+     box-shadow: #ff0000 5px 0 0 5px;
+    }
+
+    /* ── BANDA CERTIFICACIONES ─────────────────────── */
+    .banda {
+      background: var(--naranja);
+      color: var(--blanco);
+      padding: 14px 0;
+      overflow: hidden;
+    }
+    .banda__inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      white-space: nowrap;
+      animation: scroll-banda 22s linear infinite;
+    }
+    .banda__item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: .88rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .banda__item svg { width: 18px; height: 18px; fill: rgba(255,255,255,.6); }
+    @keyframes scroll-banda {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── POR QUÉ ELEGIRNOS ─────────────────────────── */
+    .features {
+      padding: 80px 0;
+      background: var(--blanco);
+    }
+    .features__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .features__header .seccion-titulo { margin-bottom: 12px; }
+    .features__header .seccion-subtitulo { margin: 0 auto; }
+    .features__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      border: 1.5px solid #e8e8e8;
+      border-radius: var(--radio-lg);
+      padding: 32px 24px;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--naranja);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s;
+    }
+    .feature-card:hover {
+      border-color: var(--naranja);
+      box-shadow: var(--sombra);
+      transform: translateY(-4px);
+    }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-card__icono {
+      width: 52px; height: 52px;
+      background: #fff5f0;
+      border-radius: var(--radio);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .feature-card__icono svg { width: 26px; height: 26px; fill: var(--naranja); }
+    .feature-card__titulo {
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 8px;
+    }
+    .feature-card__desc {
+      font-size: .9rem;
+      color: var(--humo);
+      line-height: 1.6;
+    }
+
+    /* ── TEMARIO ───────────────────────────────────── */
+    .temario {
+      padding: 80px 0;
+      background: var(--carbon);
+      color: var(--blanco);
+    }
+    .temario__layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .temario__info .seccion-titulo { margin-bottom: 16px; }
+    .temario__info .seccion-subtitulo { color: #aaa; margin-bottom: 32px; }
+    .temario__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(240,90,26,.15);
+      border: 1px solid rgba(240,90,26,.35);
+      border-radius: var(--radio);
+      padding: 10px 16px;
+      font-family: var(--fuente-titulo);
+      font-weight: 600;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-top: 8px;
+    }
+    .temario__badge svg { width: 16px; height: 16px; fill: var(--naranja); }
+    .temario__modulos { display: flex; flex-direction: column; gap: 4px; }
+    .modulo {
+      border-radius: var(--radio);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .modulo__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: var(--grafito);
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .modulo__header:hover { background: var(--acero); }
+    .modulo__num {
+      font-family: var(--fuente-titulo);
+      font-weight: 800;
+      font-size: .75rem;
+      letter-spacing: .14em;
+      color: var(--naranja);
+      text-transform: uppercase;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    .modulo__nombre {
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      flex: 1;
+    }
+    .modulo__chevron {
+      width: 18px; height: 18px;
+      stroke: var(--gris);
+      transition: transform .25s;
+      flex-shrink: 0;
+    }
+    .modulo.open .modulo__chevron { transform: rotate(180deg); }
+    .modulo__body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+      background: rgba(0,0,0,.25);
+    }
+    .modulo.open .modulo__body { max-height: 600px; }
+    .modulo__lista {
+      list-style: none;
+      padding: 16px 20px 20px 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .modulo__lista li {
+      font-size: .9rem;
+      color: #bbb;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modulo__lista li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--naranja);
+      flex-shrink: 0;
+    }
+
+    /* ── PRECIO ────────────────────────────────────── */
+    .precio {
+      padding: 80px 0;
+      background: var(--claro);
+    }
+    .precio__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .precio__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .precio-card {
+      background: var(--blanco);
+      border: 2px solid #e8e8e8;
+      border-radius: var(--radio-lg);
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .precio-card:hover {
+      box-shadow: var(--sombra-lg);
+      transform: translateY(-4px);
+    }
+    .precio-card--destacado {
+      border-color: var(--naranja);
+      box-shadow: var(--sombra-lg);
+    }
+    .precio-card__badge-top {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--naranja);
+      color: var(--blanco);
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .precio-card__nombre {
+      font-family: var(--fuente-titulo);
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 4px;
+    }
+    .precio-card__modalidad {
+      font-size: .82rem;
+      color: var(--humo);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 24px;
+    }
+    .precio-card__inscripcion {
+      font-size: .8rem;
+      color: var(--humo);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 4px;
+    }
+    .precio-card__inscripcion-valor {
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: 1rem;
+      color: #2e7d32;
+      margin-bottom: 16px;
+    }
+    .precio-card__divider {
+      border: none;
+      border-top: 1px solid #ebebeb;
+      margin: 16px 0;
+    }
+    .precio-card__total-label {
+      font-size: .78rem;
+      color: var(--humo);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 4px;
+    }
+    .precio-card__total {
+      font-family: var(--fuente-titulo);
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--negro);
+      margin-bottom: 8px;
+    }
+    .precio-card__cuotas {
+      font-family: var(--fuente-titulo);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--naranja);
+      margin-bottom: 28px;
+    }
+    .precio-card__lista {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .precio-card__lista li {
+      font-size: .88rem;
+      color: var(--acero);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .precio-card__lista li::before {
+      content: '✓';
+      color: #2e7d32;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .precio-card .btn { width: 100%; text-align: center; }
+
+    /* ── TESTIMONIOS ───────────────────────────────── */
+    .testimonios {
+      padding: 80px 0;
+      background: var(--negro);
+      color: var(--blanco);
+    }
+    .testimonios__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .testimonios__header .seccion-titulo { margin-bottom: 12px; }
+    .testimonios__header .seccion-subtitulo { color: #aaa; margin: 0 auto; }
+    .testimonios__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .testimonio-card {
+      background: var(--grafito);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radio-lg);
+      padding: 28px 24px;
+      position: relative;
+    }
+    .testimonio-card__comillas {
+      font-family: Georgia, serif;
+      font-size: 4rem;
+      line-height: .7;
+      color: var(--naranja);
+      margin-bottom: 12px;
+      opacity: .7;
+    }
+    .testimonio-card__texto {
+      font-size: .92rem;
+      line-height: 1.7;
+      color: #c0c0c0;
+      margin-bottom: 20px;
+    }
+    .testimonio-card__perfil {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonio-card__avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--acero);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--naranja);
+      flex-shrink: 0;
+    }
+    .testimonio-card__nombre {
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: .95rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .testimonio-card__cargo {
+      font-size: .78rem;
+      color: var(--humo);
+      margin-top: 2px;
+    }
+    .estrellas {
+      color: var(--amarillo);
+      font-size: .9rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    /* ── FORMULARIO ────────────────────────────────── */
+    .contacto {
+      padding: 80px 0;
+      background: var(--claro);
+    }
+    .contacto__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contacto__info .seccion-titulo { margin-bottom: 16px; }
+    .contacto__info .seccion-subtitulo { margin-bottom: 32px; }
+    .contacto__dato {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .contacto__dato-icon {
+      width: 42px; height: 42px;
+      background: var(--negro);
+      border-radius: var(--radio);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contacto__dato-icon svg { width: 18px; height: 18px; fill: var(--naranja); }
+    .contacto__dato-label {
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--humo);
+      margin-bottom: 2px;
+    }
+    .contacto__dato-valor {
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--negro);
+    }
+
+    .form-card {
+      background: var(--blanco);
+      border-radius: var(--radio-lg);
+      padding: 36px 32px;
+      box-shadow: var(--sombra);
+    }
+    .form-card__titulo {
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--naranja);
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-family: var(--fuente-titulo);
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--acero);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: var(--radio);
+      font-family: var(--fuente-cuerpo);
+      font-size: .92rem;
+      color: var(--carbon);
+      background: var(--blanco);
+      transition: border-color .15s, box-shadow .15s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--naranja);
+      box-shadow: 0 0 0 3px rgba(240,90,26,.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-card .btn { width: 100%; font-size: 1rem; padding: 15px; }
+
+    /* ── FOOTER ────────────────────────────────────── */
+    .footer {
+      background: var(--negro);
+      color: #aaa;
+      padding: 56px 0 0;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .footer__brand-logo {
+      font-family: var(--fuente-titulo);
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--blanco);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .footer__brand-logo-icon {
+      width: 36px; height: 36px;
+      background: var(--naranja);
+      border-radius: var(--radio);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer__brand-logo-icon svg { width: 18px; height: 18px; fill: var(--blanco); }
+    .footer__brand-desc {
+      font-size: .88rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .footer__social { display: flex; gap: 10px; }
+    .footer__social-link {
+      width: 36px; height: 36px;
+      background: var(--grafito);
+      border-radius: var(--radio);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s;
+    }
+    .footer__social-link:hover { background: var(--naranja); }
+    .footer__social-link svg { width: 16px; height: 16px; fill: var(--blanco); }
+    .footer__col-titulo {
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blanco);
+      margin-bottom: 16px;
+    }
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer__links a {
+      font-size: .88rem;
+      color: #888;
+      transition: color .15s;
+    }
+    .footer__links a:hover { color: var(--naranja); }
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 20px 0;
+      font-size: .8rem;
+      color: #555;
+    }
+    .footer__bottom a { color: #555; transition: color .15s; }
+    .footer__bottom a:hover { color: var(--naranja); }
+
+    /* ── WHATSAPP BTN ──────────────────────────────── */
+    .wa-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.45);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,.55);
+    }
+    .wa-btn svg { width: 28px; height: 28px; fill: var(--blanco); }
+
+    /* ── ANIMACIÓN ENTRADA ─────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero__inner { grid-template-columns: 1fr; padding: 60px 24px; }
+      .hero__ilustracion { display: none; }
+      .hero__stats { gap: 20px; flex-wrap: wrap; }
+      .temario__layout { grid-template-columns: 1fr; gap: 40px; }
+      .contacto__layout { grid-template-columns: 1fr; gap: 40px; }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .navbar__nav { display: none; }
+      .navbar__cta  { display: none; }
+      .hamburger    { display: flex; }
+      .topbar__inner { justify-content: center; }
+      .topbar__item:not(:first-child) { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+      .hero__titulo { font-size: 2.6rem; }
+    }
+
+    /* ── MOBILE NAV ────────────────────────────────── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.92);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--fuente-titulo);
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--blanco);
+      transition: color .15s;
+    }
+    .mobile-nav a:hover { color: var(--naranja); }
+    .mobile-nav__close {
+      position: absolute;
+      top: 24px; right: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--blanco);
+      font-size: 2rem;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── TOPBAR ─────────────────────────── -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar__inner">
+      <div class="topbar__item">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.5 11.5 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg>
+        <a href="tel:+54XXXXXXXXXX">+54 11 2476-9388</a>
+      </div>
+      <div class="topbar__item">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <a href="mailto:info@[EMPRESA].com.ar">informes@cursoscea.com.ar</a>
+      </div>
+      <div class="topbar__item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>
+        <span>Turdera, Previncia de Bs. As.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAVBAR ─────────────────────────── -->
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="#" class="navbar__logo">
+      <div class="navbar__logo-icon">
+        <img src="https://res.cloudinary.com/drdzj9uyn/image/upload/v1773935864/logo-cea-1_ymxc9n.png" alt="logo-cea">
+      </div>
+      CEA Cursos
+    </a>
+    <ul class="navbar__nav">
+      <li><a href="#por-que">Por qué elegirnos</a></li>
+      <li><a href="#temario">Temario</a></li>
+      <li><a href="#precio">Precio</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="navbar__cta">
+      <a href="#contacto" class="btn btn--naranja">Inscribirse</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── MOBILE NAV ────────────────────── -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav__close" onclick="toggleMenu()">×</button>
+  <a href="#por-que"    onclick="toggleMenu()">Por qué elegirnos</a>
+  <a href="#temario"    onclick="toggleMenu()">Temario</a>
+  <a href="#precio"     onclick="toggleMenu()">Precio</a>
+  <a href="#testimonios" onclick="toggleMenu()">Testimonios</a>
+  <a href="#contacto"   onclick="toggleMenu()">Contacto</a>
+  <a href="#contacto" class="btn btn--naranja" style="margin-top:16px" onclick="toggleMenu()">Inscribirse</a>
+</div>
+
+<!-- ── HERO ──────────────────────────── -->
+<section class="hero" id="inicio">
+  <div class="hero__bg"></div>
+
+  <!-- chispas SVG decorativas -->
+  <svg class="hero__sparks" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#f05a1a" stroke-linecap="round">
+      <line x1="180" y1="200" x2="260" y2="60"  stroke-width="2.5" opacity=".9"/>
+      <line x1="180" y1="200" x2="310" y2="150" stroke-width="1.5" opacity=".7"/>
+      <line x1="180" y1="200" x2="340" y2="220" stroke-width="1"   opacity=".5"/>
+      <line x1="180" y1="200" x2="290" y2="260" stroke-width="1.2" opacity=".6"/>
+      <line x1="180" y1="200" x2="120" y2="80"  stroke-width="1"   opacity=".4"/>
+      <line x1="180" y1="200" x2="80"  y2="160" stroke-width=".8"  opacity=".35"/>
+      <line x1="180" y1="200" x2="90"  y2="260" stroke-width="1"   opacity=".4"/>
+      <line x1="180" y1="200" x2="240" y2="290" stroke-width="1.3" opacity=".55"/>
+      <line x1="180" y1="200" x2="370" y2="110" stroke-width=".8"  opacity=".3"/>
+      <line x1="180" y1="200" x2="390" y2="280" stroke-width=".7"  opacity=".25"/>
+    </g>
+    <circle cx="180" cy="200" r="8" fill="#ffc233" opacity=".9"/>
+    <circle cx="180" cy="200" r="4" fill="#ffffff"  opacity="1"/>
+    <g fill="#f05a1a">
+      <circle cx="260" cy="60"  r="3"   opacity=".8"/>
+      <circle cx="310" cy="150" r="2.5" opacity=".65"/>
+      <circle cx="340" cy="220" r="2"   opacity=".5"/>
+      <circle cx="290" cy="260" r="2"   opacity=".55"/>
+      <circle cx="120" cy="80"  r="1.8" opacity=".4"/>
+      <circle cx="80"  cy="160" r="1.5" opacity=".35"/>
+      <circle cx="240" cy="290" r="2"   opacity=".5"/>
+      <circle cx="370" cy="110" r="1.5" opacity=".3"/>
+    </g>
+  </svg>
+
+  <div class="hero__inner">
+    <div class="hero__contenido">
+      <div class="hero__kicker">
+        <div class="hero__kicker-line"></div>
+        <span class="hero__kicker-text">Formación Profesional en Soldadura</span>
+      </div>
+      <h1 class="hero__titulo">
+        Convertite en<br>
+        <em>Soldador</em><br>
+        Profesional
+      </h1>
+      <p class="hero__desc">
+        Aprendé MIG/MAG, TIG y electrodo con instructores certificados. Salida laboral inmediata, clases prácticas y certificado oficial al terminar.
+      </p>
+      <div class="hero__acciones">
+        <a href="#contacto" class="btn btn--naranja">Inscribirme ahora</a>
+        <a href="#temario"  class="btn btn--outline">Ver temario</a>
+      </div>
+      <div class="hero__stats">
+        <div>
+          <div class="hero__stat-num">+500</div>
+          <div class="hero__stat-label">Alumnos egresados</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">3 meses</div>
+          <div class="hero__stat-label">Duración del curso</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">100%</div>
+          <div class="hero__stat-label">Práctico</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__ilustracion">
+      <!-- Ilustración soldador SVG -->
+      <img src="https://res.cloudinary.com/drdzj9uyn/image/upload/v1773936962/img-curso-soldadura_n2l0ae.png" alt="img-soldadura">
+      <svg>
+        <!-- chispa principal -->
+        <g stroke="#ffc233" stroke-linecap="round">
+          <line x1="190" y1="218" x2="198" y2="200" stroke-width="2"   opacity=".9"/>
+          <line x1="190" y1="218" x2="205" y2="210" stroke-width="1.5" opacity=".7"/>
+          <line x1="190" y1="218" x2="175" y2="202" stroke-width="1.2" opacity=".6"/>
+          <line x1="190" y1="218" x2="210" y2="225" stroke-width="1"   opacity=".5"/>
+          <line x1="190" y1="218" x2="172" y2="228" stroke-width="1"   opacity=".5"/>
+        </g>
+       
+        <!-- text decorativo -->
+        <text x="100" y="300" fill="rgba(240,90,26,0.2)" font-family="'Barlow Condensed',sans-serif" font-weight="800" font-size="11" letter-spacing="6" text-transform="uppercase">SOLDADURA PROFESIONAL</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── BANDA CERTIFICACIONES ─────────── -->
+<div class="banda">
+  <div class="banda__inner">
+    <!-- duplicar items para efecto infinito -->
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> Certificado Oficial al Egreso</div>
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Grupos Reducidos</div>
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 3a3 3 0 110 6 3 3 0 010-6zm5 12H7v-.75c0-2.08 2.24-3.75 5-3.75s5 1.67 5 3.75V18z"/></svg> Docentes Certificados</div>
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.54 15.73 1 13.5 1c-1.26 0-2.36.56-3.18 1.44L9 4 7.68 2.44C6.86 1.56 5.76 1 4.5 1 2.27 1 0 2.54 0 4.66 0 5.12.11 5.56.18 6H2l-2 13h24L22 6h-2zm-7.5-3c.83 0 1.5.74 1.5 1.66 0 .48-.19.91-.5 1.24L12 8 10.5 5.9A1.67 1.67 0 0110 4.66C10 3.74 10.67 3 11.5 3z"/></svg> Salida Laboral Inmediata</div>
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg> Cuotas Sin Interés</div>
+    <!-- duplicados para loop -->
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> Certificado Oficial al Egreso</div>
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Grupos Reducidos</div>
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 3a3 3 0 110 6 3 3 0 010-6zm5 12H7v-.75c0-2.08 2.24-3.75 5-3.75s5 1.67 5 3.75V18z"/></svg> Docentes Certificados</div>
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.54 15.73 1 13.5 1c-1.26 0-2.36.56-3.18 1.44L9 4 7.68 2.44C6.86 1.56 5.76 1 4.5 1 2.27 1 0 2.54 0 4.66 0 5.12.11 5.56.18 6H2l-2 13h24L22 6h-2zm-7.5-3c.83 0 1.5.74 1.5 1.66 0 .48-.19.91-.5 1.24L12 8 10.5 5.9A1.67 1.67 0 0110 4.66C10 3.74 10.67 3 11.5 3z"/></svg> Salida Laboral Inmediata</div>
+    <div class="banda__item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg> Cuotas Sin Interés</div>
+  </div>
+</div>
+
+<!-- ── POR QUÉ ELEGIRNOS ──────────────── -->
+<section class="features" id="por-que">
+  <div class="container">
+    <div class="features__header fade-up">
+      <p class="tag tag--naranja" style="margin-bottom:12px">¿Por qué elegirnos?</p>
+      <h2 class="seccion-titulo">Formación que<br>marca la diferencia</h2>
+      <p class="seccion-subtitulo" style="margin-top:12px">Todo lo que necesitás para convertirte en un soldador calificado, listo para el mercado laboral.</p>
+    </div>
+    <div class="features__grid">
+      <div class="feature-card fade-up">
+        <div class="feature-card__icono">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <h3 class="feature-card__titulo">Certificado Oficial</h3>
+        <p class="feature-card__desc">Certificación reconocida por [ORGANISMO]. Avalada por la industria metalmecánica y construcción.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:.08s">
+        <div class="feature-card__icono">
+          <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65a.5.5 0 00.12-.64l-2-3.46a.5.5 0 00-.61-.22l-2.49 1a7.3 7.3 0 00-1.67-.97l-.38-2.65A.49.49 0 0014 2h-4a.49.49 0 00-.49.42l-.38 2.65a7.3 7.3 0 00-1.67.97l-2.49-1a.49.49 0 00-.61.22l-2 3.46a.49.49 0 00.12.64l2.11 1.65a7.4 7.4 0 000 1.96l-2.11 1.65a.5.5 0 00-.12.64l2 3.46c.13.22.4.3.61.22l2.49-1c.52.38 1.08.7 1.67.97l.38 2.65c.06.24.27.42.49.42h4c.22 0 .43-.18.49-.42l.38-2.65a7.3 7.3 0 001.67-.97l2.49 1c.23.09.49 0 .61-.22l2-3.46a.5.5 0 00-.12-.64l-2.11-1.65zM12 15.5A3.5 3.5 0 1112 8.5a3.5 3.5 0 010 7z"/></svg>
+        </div>
+        <h3 class="feature-card__titulo">100% Práctico</h3>
+        <p class="feature-card__desc">El 70% del curso es práctica en taller. Trabajás con equipos industriales reales desde el primer día.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:.16s">
+        <div class="feature-card__icono">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <h3 class="feature-card__titulo">Grupos Reducidos</h3>
+        <p class="feature-card__desc">Máximo [X] alumnos por turno para garantizar atención personalizada y tiempo de práctica en cada puesto.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:.24s">
+        <div class="feature-card__icono">
+          <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.54 15.73 1 13.5 1c-1.26 0-2.36.56-3.18 1.44L9 4 7.68 2.44C6.86 1.56 5.76 1 4.5 1 2.27 1 0 2.54 0 4.66 0 5.12.11 5.56.18 6H2l-2 13h24L22 6h-2zm-7.5-3c.83 0 1.5.74 1.5 1.66 0 .48-.19.91-.5 1.24L12 8 10.5 5.9A1.67 1.67 0 0110 4.66C10 3.74 10.67 3 11.5 3z"/></svg>
+        </div>
+        <h3 class="feature-card__titulo">Salida Laboral</h3>
+        <p class="feature-card__desc">Nuestros egresados trabajan en [sector]. Te ayudamos con la búsqueda laboral y contacto con empresas del rubro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEMARIO ─────────────────────────── -->
+<section class="temario" id="temario">
+  <div class="container">
+    <div class="temario__layout">
+      <div class="temario__info fade-up">
+        <p class="tag tag--naranja" style="margin-bottom:16px">Programa del Curso</p>
+        <h2 class="seccion-titulo" style="color:#fff">Temario<br>completo</h2>
+        <p class="seccion-subtitulo" style="margin-top:16px">Desde los fundamentos hasta técnicas industriales avanzadas. Un programa diseñado por profesionales en actividad.</p>
+        <br>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:.9rem;color:#bbb">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--naranja)"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            Duración: <strong style="color:#fff">3 meses — 2 horas semanales</strong>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.9rem;color:#bbb">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--naranja)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>
+            Modalidad: <strong style="color:#fff">Presencial</strong>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.9rem;color:#bbb">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--naranja)"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 3a3 3 0 110 6 3 3 0 010-6zm5 12H7v-.75c0-2.08 2.24-3.75 5-3.75s5 1.67 5 3.75V18z"/></svg>
+            Nivel requerido: <strong style="color:#fff">Sin experiencia previa</strong>
+          </div>
+        </div>
+        <div class="temario__badge">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          Certificado oficial al finalizar
+        </div>
+      </div>
+
+      <div class="temario__modulos fade-up" style="transition-delay:.1s">
+        <!-- Módulo 1 -->
+        <div class="modulo open">
+          <div class="modulo__header" onclick="toggleModulo(this)">
+            <span class="modulo__num">Módulo 01</span>
+            <span class="modulo__nombre">Introducción y Seguridad</span>
+            <svg class="modulo__chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="modulo__body">
+            <ul class="modulo__lista">
+              <li>Introducción a la soldadura y sus procesos</li>
+              <li>Normas de seguridad e higiene en el taller</li>
+              <li>Equipo de protección personal (EPP)</li>
+              <li>Lectura e interpretación de planos básicos</li>
+              <li>Materiales y metales de base</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Módulo 2 -->
+        <div class="modulo">
+          <div class="modulo__header" onclick="toggleModulo(this)">
+            <span class="modulo__num">Módulo 02</span>
+            <span class="modulo__nombre">Soldadura por Electrodo (SMAW)</span>
+            <svg class="modulo__chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="modulo__body">
+            <ul class="modulo__lista">
+              <li>Fundamentos del proceso SMAW</li>
+              <li>Selección y tipos de electrodos</li>
+              <li>Regulación de parámetros en la máquina</li>
+              <li>Posiciones de soldadura (1G, 2G, 3G)</li>
+              <li>Práctica en chapas y perfiles</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Módulo 3 -->
+        <div class="modulo">
+          <div class="modulo__header" onclick="toggleModulo(this)">
+            <span class="modulo__num">Módulo 03</span>
+            <span class="modulo__nombre">Soldadura MIG / MAG</span>
+            <svg class="modulo__chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="modulo__body">
+            <ul class="modulo__lista">
+              <li>Principios del proceso GMAW/MIG-MAG</li>
+              <li>Equipos y consumibles (hilos, gases)</li>
+              <li>Ajuste de velocidad de alambre y voltaje</li>
+              <li>Soldadura en acero y aluminio</li>
+              <li>Control de defectos y calidad del cordón</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Módulo 4 -->
+        <div class="modulo">
+          <div class="modulo__header" onclick="toggleModulo(this)">
+            <span class="modulo__num">Módulo 04</span>
+            <span class="modulo__nombre">Soldadura TIG</span>
+            <svg class="modulo__chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="modulo__body">
+            <ul class="modulo__lista">
+              <li>Proceso GTAW / TIG — características</li>
+              <li>Selección de tungsteno y material de aporte</li>
+              <li>Técnica de pulso y corriente alterna (AC)</li>
+              <li>Soldadura de acero inoxidable y aluminio</li>
+              <li>Aplicaciones industriales y tubería</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Módulo 5 -->
+        <div class="modulo">
+          <div class="modulo__header" onclick="toggleModulo(this)">
+            <span class="modulo__num">Módulo 05</span>
+            <span class="modulo__nombre">Práctica Final y Evaluación</span>
+            <svg class="modulo__chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="modulo__body">
+            <ul class="modulo__lista">
+              <li>Proyecto integrador: pieza completa</li>
+              <li>Inspección visual y ensayos no destructivos básicos</li>
+              <li>Evaluación teórico-práctica final</li>
+              <li>Entrega de certificado</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRECIO ─────────────────────────── -->
+<section class="precio" id="precio">
+  <div class="container">
+    <div class="precio__header fade-up">
+      <p class="tag tag--naranja" style="margin-bottom:12px">Inversión</p>
+      <h2 class="seccion-titulo">Elegí tu<br>modalidad</h2>
+      <p class="seccion-subtitulo" style="margin:12px auto 0">Inscripción bonificada y cuotas sin interés. Comenzá sin excusas.</p>
+    </div>
+    <div class="precio__grid">
+      <!-- Plan Presencial -->
+      <div class="precio-card fade-up">
+        <p class="precio-card__nombre">Presencial</p>
+        <p class="precio-card__modalidad">Taller en Turdera, Bs. As.</p>
+        <p class="precio-card__inscripcion">Inscripción</p>
+        <p class="precio-card__inscripcion-valor">¡Bonificada!</p>
+        <hr class="precio-card__divider">
+        <p class="precio-card__total-label">Valor total del curso</p>
+        <p class="precio-card__total">$XXX.XXX</p>
+        <p class="precio-card__cuotas">3 cuotas de $XX.XXX sin interés</p>
+        <ul class="precio-card__lista">
+          <li>Clases en taller equipado</li>
+          <li>Material de práctica incluido</li>
+          <li>Acceso a equipos industriales</li>
+          <li>Certificado oficial al egresar</li>
+          <li>Soporte del docente post-curso</li>
+        </ul>
+        <a href="#contacto" class="btn btn--dark">Inscribirme</a>
+      </div>
+
+      <!-- Plan Online – DESTACADO -->
+      <div class="precio-card precio-card--destacado fade-up" style="transition-delay:.1s">
+        <div class="precio-card__badge-top">Más popular</div>
+        <p class="precio-card__nombre">Online en Vivo</p>
+        <p class="precio-card__modalidad">Videoconferencia + Prácticos</p>
+        <p class="precio-card__inscripcion">Inscripción</p>
+        <p class="precio-card__inscripcion-valor">¡Bonificada!</p>
+        <hr class="precio-card__divider">
+        <p class="precio-card__total-label">Valor total del curso</p>
+        <p class="precio-card__total">$XXX.XXX</p>
+        <p class="precio-card__cuotas">3 cuotas de $XX.XXX sin interés</p>
+        <ul class="precio-card__lista">
+          <li>Clases en vivo con el docente</li>
+          <li>Grabaciones disponibles 24/7</li>
+          <li>Kit de materiales a domicilio</li>
+          <li>Certificado oficial al egresar</li>
+          <li>Comunidad privada de alumnos</li>
+          <li>Soporte por WhatsApp</li>
+        </ul>
+        <a href="#contacto" class="btn btn--naranja">Inscribirme</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:2rem;color:var(--humo)">
+      * Los precios pueden variar. Consultá valores actualizados al momento de la inscripción.
+    </p>
+  </div>
+</section>
+
+<!-- ── TESTIMONIOS ────────────────────── -->
+<section class="testimonios" id="testimonios">
+  <div class="container">
+    <div class="testimonios__header fade-up">
+      <p class="tag tag--naranja" style="margin-bottom:12px">Testimonios</p>
+      <h2 class="seccion-titulo">Lo que dicen<br>nuestros alumnos</h2>
+      <p class="seccion-subtitulo">Historias reales de personas que cambiaron su futuro aprendiendo a soldar.</p>
+    </div>
+    <div class="testimonios__grid">
+      <div class="testimonio-card fade-up">
+        <div class="estrellas">★★★★★</div>
+        <div class="testimonio-card__comillas">"</div>
+        <p class="testimonio-card__texto">Antes no tenía oficio. A los 3 meses de terminar el curso ya estaba trabajando en una empresa. El instructor es muy claro y el material de práctica es de primera calidad.</p>
+        <div class="testimonio-card__perfil">
+          <div class="testimonio-card__avatar">MG</div>
+          <div>
+            <p class="testimonio-card__nombre">Martín González</p>
+            <p class="testimonio-card__cargo">Soldador, egresado 2025</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card fade-up" style="transition-delay:.08s">
+        <div class="estrellas">★★★★★</div>
+        <div class="testimonio-card__comillas">"</div>
+        <p class="testimonio-card__texto">Hice el curso hace tiempo y la experiencia fue increíble. Las clases son muy dinámicas, siempre hay tiempo para preguntas y no quedarse con dudad el profe es muy atento.</p>
+        <div class="testimonio-card__perfil">
+          <div class="testimonio-card__avatar">LR</div>
+          <div>
+            <p class="testimonio-card__nombre">Laura Rodríguez</p>
+            <p class="testimonio-card__cargo">Soldadora autónoma, egresada 2024</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card fade-up" style="transition-delay:.16s">
+        <div class="estrellas">★★★★★</div>
+        <div class="testimonio-card__comillas">"</div>
+        <p class="testimonio-card__texto">Ya sabía soldar cosas simples, pero este curso me dio el certificado y los conocimientos técnicos para subir de categoría en mi trabajo. Totalmente recomendable.</p>
+        <div class="testimonio-card__perfil">
+          <div class="testimonio-card__avatar">CP</div>
+          <div>
+            <p class="testimonio-card__nombre">Carlos Pereyra</p>
+            <p class="testimonio-card__cargo">Operario calificado, egresado 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACTO ───────────────────────── -->
+<section class="contacto" id="contacto">
+  <div class="container">
+    <div class="contacto__layout">
+      <div class="contacto__info fade-up">
+        <p class="tag tag--naranja" style="margin-bottom:16px">Inscripción</p>
+        <h2 class="seccion-titulo">Empezá hoy<br>mismo</h2>
+        <p class="seccion-subtitulo" style="margin-top:12px;margin-bottom:32px">Completá el formulario y nos ponemos en contacto en menos de 24 hs para darte toda la información.</p>
+
+        <div class="contacto__dato">
+          <div class="contacto__dato-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.5 11.5 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg>
+          </div>
+          <div>
+            <p class="contacto__dato-label">Teléfono / WhatsApp</p>
+            <p class="contacto__dato-valor">+54 11 2476-9388</p>
+          </div>
+        </div>
+        <div class="contacto__dato">
+          <div class="contacto__dato-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <p class="contacto__dato-label">Email</p>
+            <p class="contacto__dato-valor">informes@cursoscea.com.ar</p>
+          </div>
+        </div>
+        <div class="contacto__dato">
+          <div class="contacto__dato-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>
+          </div>
+          <div>
+            <p class="contacto__dato-label">Dirección</p>
+            <p class="contacto__dato-valor"> Sta. Buenaventura 407, Turdera, Provincia de Buenos Aires</p>
+          </div>
+        </div>
+        <div class="contacto__dato">
+          <div class="contacto__dato-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          </div>
+          <div>
+            <p class="contacto__dato-label">Horarios de atención</p>
+            <p class="contacto__dato-valor">Lun a Vie: 15:00–21:00 hs</p>
+            <p class="contacto__dato-valor">Sab : 9:00–18:00 hs</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card fade-up" style="transition-delay:.1s">
+        <h3 class="form-card__titulo">Solicitá información</h3>
+        <form onsubmit="enviarFormulario(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" id="apellido" placeholder="Tu apellido" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="tucorreo@ejemplo.com" required />
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono / WhatsApp</label>
+            <input type="tel" id="telefono" placeholder="+54 11 2476-9388" />
+          </div>
+          <div class="form-group">
+            <label for="modalidad">Modalidad de interés</label>
+            <select id="modalidad">
+              <option value="">Seleccioná una opción</option>
+              <option>Presencial</option>
+              <option>Online en vivo</option>
+              <option>Aún no lo sé</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" placeholder="¿Tenés alguna consulta o comentario?"></textarea>
+          </div>
+          <button type="submit" class="btn btn--naranja" id="btnSubmit">Enviar consulta →</button>
+        </form>
+        <div id="formExito" style="display:none;text-align:center;padding:20px 0">
+          <div style="font-size:2.5rem;margin-bottom:8px">✅</div>
+          <p style="font-family:var(--fuente-titulo);font-weight:700;font-size:1.2rem;text-transform:uppercase">¡Gracias por contactarnos!</p>
+          <p style="font-size:.9rem;color:var(--humo);margin-top:6px">Nos ponemos en contacto a la brevedad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">
+          <div class="footer__brand-logo-icon">
+        <img src="https://res.cloudinary.com/drdzj9uyn/image/upload/v1773935864/logo-cea-1_ymxc9n.png" alt="logo-cea">
+          </div>
+          CEA Cursos
+        </div>
+        <p class="footer__brand-desc">Formación profesional en soldadura con certificación oficial. Comprometidos con tu crecimiento laboral.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="var(--negro)"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--negro)" stroke-width="2"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42A2.78 2.78 0 0020.59 4.5C18.88 4 12 4 12 4s-6.88 0-8.59.5a2.78 2.78 0 00-1.95 1.92A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.5C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.92A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer__col-titulo">Curso</h4>
+        <ul class="footer__links">
+          <li><a href="#por-que">Por qué elegirnos</a></li>
+          <li><a href="#temario">Temario</a></li>
+          <li><a href="#precio">Precio y cuotas</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-titulo">Institución</h4>
+        <ul class="footer__links">
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Certificaciones</a></li>
+          <li><a href="#">Docentes</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-titulo">Contacto</h4>
+        <ul class="footer__links">
+          <li><a href="tel:+541124769388">+54 11 2476-9388</a></li>
+          <li><a href="mailto:informes@cursoscea.com.ar">informes@cursoscea.com.ar</a></li>
+          <li><a href="#">Sta. Buenaventura 407, Turdera, Provincia de Buenos Aires</a></li>
+          <li><a href="#contacto">Enviar consulta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 CEA Cursos — Todos los derechos reservados.</span>
+      <div style="display:flex;gap:16px">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos y condiciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP ────────────────────────── -->
+<a href="https://wa.me/541124769388?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20curso%20de%20soldadura" class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  /* ── Menú móvil ─────────────── */
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  /* ── Acordeón módulos ───────── */
+  function toggleModulo(header) {
+    const modulo = header.parentElement;
+    const isOpen = modulo.classList.contains('open');
+    document.querySelectorAll('.modulo').forEach(m => m.classList.remove('open'));
+    if (!isOpen) modulo.classList.add('open');
+  }
+
+  /* ── Animación scroll ───────── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ── Formulario simulado ────── */
+  function enviarFormulario(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btnSubmit');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    setTimeout(() => {
+      e.target.style.display = 'none';
+      document.getElementById('formExito').style.display = 'block';
+    }, 1200);
+  }
+</script>
+</body>
+</html>
