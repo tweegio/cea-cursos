@@ -21,8 +21,8 @@
       --gris:    #b0b0b0;
       --claro:   #f4f4f2;
       --blanco:  #ffffff;
-      --naranja: #ff0000;
-      --naranja2:#d44a10;
+      --naranja: #CC0000;
+      --naranja2:#ff0000;
       --amarillo:#ffc233;
 
       --fuente-titulo: 'Barlow Condensed', sans-serif;
@@ -153,15 +153,20 @@
       color: var(--negro);
       display: flex;
       align-items: center;
+      border-radius: 2px;
       gap: 10px;
     }
     .navbar__logo-icon {
-      width: 40px; height: 40px;
-      background: var(--naranja);
-      border-radius: var(--radio);
+      width: 80px; 
+      height: 80px;
+      border-radius: 2px;
       display: flex; align-items: center; justify-content: center;
     }
-    .navbar__logo-icon svg { width: 22px; height: 22px; fill: var(--blanco); }
+    .navbar__logo-icon svg { 
+      width: 22px;
+      height: 22px;
+      border-radius: 2px;
+      fill: var(--blanco); }
     .navbar__nav {
       display: flex;
       align-items: center;
@@ -201,7 +206,7 @@
 
     /* ── HERO ──────────────────────────────────────── */
     .hero {
-      background: var(--negro);
+      background: #1A3A6B;
       color: var(--blanco);
       position: relative;
       overflow: hidden;
@@ -375,7 +380,7 @@
       gap: 24px;
     }
     .feature-card {
-      border: 1.5px solid #e8e8e8;
+      border: 1.5px solid #2B5BA8;
       border-radius: var(--radio-lg);
       padding: 32px 24px;
       transition: border-color .2s, box-shadow .2s, transform .2s;
@@ -400,7 +405,7 @@
     .feature-card:hover::before { transform: scaleX(1); }
     .feature-card__icono {
       width: 52px; height: 52px;
-      background: #fff5f0;
+      background: #2b5ba8d8;
       border-radius: var(--radio);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 18px;
@@ -423,7 +428,7 @@
     /* ── TEMARIO ───────────────────────────────────── */
     .temario {
       padding: 80px 0;
-      background: var(--carbon);
+      background: #1A3A6B;
       color: var(--blanco);
     }
     .temario__layout {
@@ -438,7 +443,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(240,90,26,.15);
+      background: rgba(212, 212, 212, 0.445);
       border: 1px solid rgba(240,90,26,.35);
       border-radius: var(--radio);
       padding: 10px 16px;
@@ -651,7 +656,7 @@
     /* ── TESTIMONIOS ───────────────────────────────── */
     .testimonios {
       padding: 80px 0;
-      background: var(--negro);
+      background: #1A3A6B;
       color: var(--blanco);
     }
     .testimonios__header {
@@ -816,7 +821,7 @@
 
     /* ── FOOTER ────────────────────────────────────── */
     .footer {
-      background: var(--negro);
+      background: #1A3A6B;
       color: #aaa;
       padding: 56px 0 0;
     }
@@ -984,7 +989,7 @@
     <div class="topbar__inner">
       <div class="topbar__item">
         <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.5 11.5 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg>
-        <a href="tel:+54XXXXXXXXXX">+54 11 2476-9388</a>
+        <a href="tel:+541124769388">+54 11 2476-9388</a>
       </div>
       <div class="topbar__item">
         <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -1005,7 +1010,6 @@
       <div class="navbar__logo-icon">
         <img src="https://res.cloudinary.com/drdzj9uyn/image/upload/v1773935864/logo-cea-1_ymxc9n.png" alt="logo-cea">
       </div>
-      CEA Cursos
     </a>
     <ul class="navbar__nav">
       <li><a href="#por-que">Por qué elegirnos</a></li>
@@ -1349,7 +1353,7 @@
       </div>
     </div>
     <p style="text-align:center;margin-top:24px;font-size:2rem;color:var(--naranja)">
-      ¡¡¡Consulta por nuestros descuentos Abonando en Efectivo!!!
+      ¡¡¡Consulta por Nuestros Descuentos Abonando en Efectivo!!!
     </p>
     <p style="text-align:center;margin-top:24px;font-size:.85rem;color:var(--humo)">
       * Los precios pueden variar. Consultá valores actualizados al momento de la inscripción.
